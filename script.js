@@ -1,6 +1,8 @@
 let count = 0;
 let chosenItems_X = [];
 let chosenItems_O = [];
+const winIndexs = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+let trueOrFalse = [];
 
 
 function chosen(id){
@@ -14,14 +16,20 @@ function chosen(id){
         count % 2 ? chosenItems_O.push(id) : chosenItems_X.push(id);
         console.log(chosenItems_X, chosenItems_O);
     }
-    end();
+    if(count > 5) end();
 }
 
 function end(){
-    if(count === 8){
-        let h2 = document.createElement('h2');
-        h2.textContent = 'END';
-        document.getElementsByTagName('section').appendChild(h2);
+    let str = '';
+    let h2 = document.createElement('h2');
+    if(count === 9){
+        str = "The game is over";
     }
-    console.log('end');
+    winIndexs.map(el => {
+        trueOrFalse.push(el.every(cur => chosenItems_X.indexOf(cur) > -1));
+    });
+    trueOrFalse.includes(true) ? str = "Player 1 wins" : trueOrFalse = [];
+    h2.textContent = str;
+    document.getElementById('game').appendChild(h2);
+    console.log(count);
 }
