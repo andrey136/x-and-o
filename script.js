@@ -10,12 +10,12 @@ function chosen(id) {
     if (!chosenItems_X.includes(id) && !chosenItems_O.includes(id) && !_end) {
         count++;
         const x = document.createElement('img');
-        count % 2 ? x.src = 'photos/o-png-89-images-in-collection-page-2-png-o-2000_2000.png' : x.src = 'photos/fileicon-red-xpng-x-png-256_256.png';
+        count % 2 ? x.src = 'photos/fileicon-red-xpng-x-png-256_256.png' : x.src = 'photos/o-png-89-images-in-collection-page-2-png-o-2000_2000.png';
         x.width = 120;
         x.height = 120;
         document.getElementById(id).appendChild(x);
         count % 2 ? chosenItems_O.push(id) : chosenItems_X.push(id);
-        console.log(chosenItems_X, chosenItems_O);
+        console.log(count % 2);
         if (count > 4) end();
     }
 }
@@ -32,7 +32,7 @@ function end() {
             trueOrFalse.push(el.every(cur => chosenItems_X.indexOf(cur) > -1));
         });
         if (trueOrFalse.includes(true)) {
-            str = "Player 1 wins";
+            str = "Player 2 wins";
             _end = true;
         } else {
             trueOrFalse = [];
@@ -43,7 +43,7 @@ function end() {
             trueOrFalse.push(el.every(cur => chosenItems_O.indexOf(cur) > -1));
         });
         if (trueOrFalse.includes(true)) {
-            str = "Player 2 wins";
+            str = "Player 1 wins";
             _end = true;
         } else {
             trueOrFalse = [];
