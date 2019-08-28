@@ -14,11 +14,12 @@ h1{
     text-align: center;
 }
 section{
-    width: 366px;
+    width: 960px;
     margin: 70px auto;
 }
 
 .container{
+    margin: 0 auto;
     width: 366px;
     height: 366px;
     display: flex;

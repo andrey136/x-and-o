@@ -10,7 +10,7 @@ function chosen(id) {
     if (!chosenItems_X.includes(id) && !chosenItems_O.includes(id) && !_end) {
         count++;
         const x = document.createElement('img');
-        count % 2 ? x.src = 'photos/fileicon-red-xpng-x-png-256_256.png' : x.src = 'photos/o-png-89-images-in-collection-page-2-png-o-2000_2000.png';
+        count % 2 ? x.src = 'photos/Xs.png' : x.src = 'photos/Os.png';
         x.width = 120;
         x.height = 120;
         document.getElementById(id).appendChild(x);
